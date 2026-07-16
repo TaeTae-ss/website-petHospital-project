@@ -22,4 +22,17 @@ public class PetServiceImpl implements PetService {
         return qnaMapper.qnaInsert(qnaDTO);
     }
 
+    @Override
+    public QnADTO qnaDetail(int qnaNumber){
+        qnaMapper.readCntUpdate(qnaNumber);
+
+        return qnaMapper.qnaDetail(qnaNumber)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
+    }
+    @Override
+    public QnADTO qnaUpdateForm(int qnaNumber){
+        return qnaMapper.qnaDetail(qnaNumber)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
+    }
+
 }

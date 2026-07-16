@@ -24,5 +24,18 @@
         INSERT INTO pet_qna_board (qna_category, qna_name, qna_title, qna_content, qna_pwd)
         VALUES(#{qnaCategory},#{qnaName},#{qnaTitle},#{qnaContent},#{qnaPassword})
     </insert>
+    
+    <update id="readCntUpdate" parameterType="int">
+        UPDATE pet_qna_board SET qna_readcnt = qna_readcnt + 1
+        WHERE qna_num = #{qnaNumber}
+    </update>
+    
+    <select id="qnaDetail" parameterType="int" resultMap="qnaResult">
+        SELECT
+            qna_num, qna_category, qna_title, TO_CHAR(qna_date,'YYYY-MM-DD') AS qna_date,
+            qna_content, qna_pwd
+        FROM pet_qna_board
+        WHERE qna_num = #{qnaNumber}
+    </select>
 
 </mapper>

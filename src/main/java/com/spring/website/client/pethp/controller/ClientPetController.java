@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,7 +33,21 @@ public class ClientPetController {
     @PostMapping("/qna-write")
     public String qnaInsertForm(QnADTO qnaDTO){
         petService.qnaInsert(qnaDTO);
-        return "redirect:/pethp/qnaWrite";
+        return "redirect:/pethp/qna";
+    }
+
+    @GetMapping("/qna/{qnaNumber}")
+    public String qnaDetail(@PathVariable int qnaNumber, Model model){
+        QnADTO qnaDTO = petService.qnaDetail(qnaNumber);
+        model.addAttribute("qna", qnaDTO);
+        return "client/pethp/qnaDetail";
+    }
+
+    @GetMapping("/qna/{qnaNumber}/update")
+    public String qnaUpdateForm(@PathVariable int qnaNumber, Model model){
+        QnADTO qnaDTO = petService.qnaUpdateForm(qnaNumber);
+        model.addAttribute("qna", qnaDTO);
+        return "client/pethp/qnaUpdate";
     }
 
 }

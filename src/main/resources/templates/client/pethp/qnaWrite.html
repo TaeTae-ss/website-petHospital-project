@@ -10,10 +10,10 @@
     <section layout:fragment="content" class="py-5 mt-5">
         <div class="mb-4"><h3>QnA 입력</h3></div>
 
-        <form id="insertForm" th:action="@{/pethp/write}" th:object="${qna}" method="post">
-            <label for="qnaCategory">문의 유형</label>
+        <form id="insertForm" th:action="@{/pethp/qna-write}" th:object="${qna}" method="post">
+            <label for="qnaCategory" class="col-sm-3 col-form-label">문의 유형</label>
 
-            <select id="qnaCategory" th:field="*{qnaCategory}">
+            <select id="qnaCategory" class="col-sm-3 col-form-label" th:field="*{qnaCategory}">
                 <option value="">문의 유형을 선택하세요</option>
                 <option value="진료 문의">진료 문의</option>
                 <option value="예약 문의">예약 문의</option>

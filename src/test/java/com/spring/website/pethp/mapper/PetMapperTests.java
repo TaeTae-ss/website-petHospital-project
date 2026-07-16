@@ -7,6 +7,8 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 
+import java.util.Optional;
+
 @MybatisTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 @Slf4j
@@ -29,7 +31,21 @@ public class PetMapperTests {
 
         int count = qnamapper.qnaInsert(qnaDTO);
         log.info("입력된 행의 수:{}", count);
-
     }
+
+    @Test
+    public void readCntUpdateTest(){
+        int qnaNumber = 1;
+        int count = qnamapper.readCntUpdate(qnaNumber);
+    }
+    @Test
+    public void qnaDetailTest(){
+        int qnaNumber = 2;
+        qnamapper.readCntUpdate(qnaNumber);
+        Optional<QnADTO> optionalQnADTO = qnamapper.qnaDetail(qnaNumber);
+        log.info("데이터 존재 여부: {}", optionalQnADTO.isPresent());
+        optionalQnADTO.ifPresent(qnaDTO -> log.info("데이터조회: {}", qnaDTO));
+    }
+
 }
 
