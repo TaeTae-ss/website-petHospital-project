@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>회원정보</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet"
+              th:href="@{/css/mypage.css}"/>
+    </th:block>
+</head>
+
+<body>
+
+    <section layout:fragment="content"
+             class="mypage-container">
+
+        <div class="mypage-header">
+            <h1>회원정보</h1>
+
+            <button type="button"
+                    id="updateModeButton"
+                    class="btn btn-outline-primary">
+                회원수정
+            </button>
+        </div>
+
+        <p th:if="${errorMessage != null}"
+           th:text="${errorMessage}"
+           class="server-error">
+        </p>
+
+        <form id="mypageForm"
+              th:action="@{/mypage/update}"
+              method="post">
+
+            <!-- 회원번호는 화면에 보여줄 필요가 없으므로 hidden -->
+            <input type="hidden"
+                   name="registerNo"
+                   th:value="${session.loginMember.registerNo}"/>
+
+            <div class="input-group">
+                <label for="registerId">아이디</label>
+
+                <input type="text"
+                       id="registerId"
+                       name="registerId"
+                       th:value="${session.loginMember.registerId}"
+                       readonly/>
+            </div>
+
+            <div class="input-group">
+                <label for="registerDate">가입일</label>
+
+                <input type="text"
+                       id="registerDate"
+                       th:value="${session.loginMember.registerDate}"
+                       readonly/>
+            </div>
+
+            <div class="input-group">
+                <label for="registerPassword">새 비밀번호</label>
+
+                <input type="password"
+                       id="registerPassword"
+                       name="registerPassword"
+                       placeholder="변경할 비밀번호를 입력하세요"
+                       readonly/>
+
+                <p id="passwordError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div class="input-group">
+                <label for="registerPasswordConfirm">
+                    새 비밀번호 확인
+                </label>
+
+                <input type="password"
+                       id="registerPasswordConfirm"
+                       placeholder="새 비밀번호를 다시 입력하세요"
+                       readonly/>
+
+                <p id="passwordConfirmError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div class="input-group">
+                <label for="registerName">이름</label>
+
+                <input type="text"
+                       id="registerName"
+                       name="registerName"
+                       th:value="${session.loginMember.registerName}"
+                       readonly/>
+
+                <p id="nameError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div class="input-group">
+                <label for="registerEmail">이메일</label>
+
+                <input type="email"
+                       id="registerEmail"
+                       name="registerEmail"
+                       th:value="${session.loginMember.registerEmail}"
+                       readonly/>
+
+                <p id="emailError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div class="input-group">
+                <label for="registerPhone">전화번호</label>
+
+                <input type="text"
+                       id="registerPhone"
+                       name="registerPhone"
+                       th:value="${session.loginMember.registerPhone}"
+                       readonly/>
+
+                <p id="phoneError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <!-- 수정 모드에서만 표시 -->
+            <div id="passwordCheckArea"
+                 class="password-check-area"
+                 hidden>
+
+                <h2>본인 확인</h2>
+
+                <p>
+                    회원정보를 수정하려면 현재 비밀번호를 입력하세요.
+                </p>
+
+                <div class="input-group">
+                    <label for="currentPassword">
+                        현재 비밀번호
+                    </label>
+
+                    <input type="password"
+                           id="currentPassword"
+                           name="currentPassword"
+                           disabled
+                           required/>
+
+                    <p id="currentPasswordError"
+                       class="input-error">
+                    </p>
+                </div>
+            </div>
+
+            <div id="updateButtonArea"
+                 class="button-area"
+                 hidden>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    수정 완료
+                </button>
+
+                <button type="button"
+                        id="cancelButton"
+                        class="btn btn-secondary">
+                    취소
+                </button>
+            </div>
+        </form>
+
+    </section>
+
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/mypage.js}" defer></script>
+    </th:block>
+
+</body>
+</html>

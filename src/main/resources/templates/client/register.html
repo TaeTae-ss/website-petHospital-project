@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+
+<link rel="stylesheet"
+      th:href="@{/css/register.css}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>회원가입</title>
+</head>
+
+<body>
+
+    <section layout:fragment="content">
+        <h1>회원가입</h1>
+
+        <!-- 서버에서 전달한 아이디·이메일 중복 오류 -->
+        <p th:if="${errorMessage != null}"
+           th:text="${errorMessage}"
+           class="server-error">
+        </p>
+
+        <form id="registerForm"
+              th:action="@{/register}"
+              method="post">
+
+            <div>
+                <label for="registerId">아이디</label>
+
+                <input type="text"
+                       id="registerId"
+                       name="registerId"
+                       required/>
+
+                <p id="idError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div>
+                <label for="registerPassword">비밀번호</label>
+
+                <input type="password"
+                       id="registerPassword"
+                       name="registerPassword"
+                       required/>
+
+                <p id="passwordError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div>
+                <label for="registerPasswordConfirm">
+                    비밀번호 확인
+                </label>
+
+                <input type="password"
+                       id="registerPasswordConfirm"
+                       required/>
+
+                <p id="passwordConfirmError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div>
+                <label for="registerName">이름</label>
+
+                <input type="text"
+                       id="registerName"
+                       name="registerName"
+                       required/>
+
+                <p id="nameError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div>
+                <label for="registerEmail">이메일</label>
+
+                <input type="email"
+                       id="registerEmail"
+                       name="registerEmail"
+                       required/>
+
+                <p id="emailError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <div>
+                <label for="registerPhone">전화번호</label>
+
+                <input type="text"
+                       id="registerPhone"
+                       name="registerPhone"
+                       placeholder="010-1234-5678"
+                       required/>
+
+                <p id="phoneError"
+                   class="input-error">
+                </p>
+            </div>
+
+            <button type="submit">회원가입</button>
+        </form>
+    </section>
+
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/register.js}" defer></script>
+    </th:block>
+
+</body>
+</html>

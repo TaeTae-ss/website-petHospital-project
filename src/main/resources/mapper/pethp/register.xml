@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE
+        mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.website.pethp.mapper.RegisterMapper">
+
+    <insert id="registerInsert"
+            parameterType="com.spring.website.pethp.dto.RegisterDTO">
+
+        insert into register (
+        register_no,
+        register_id,
+        register_password,
+        register_name,
+        register_email,
+        register_phone,
+        register_date
+        )
+        values (
+        register_seq.nextval,
+        #{registerId},
+        #{registerPassword},
+        #{registerName},
+        #{registerEmail},
+        #{registerPhone},
+        sysdate
+        )
+
+    </insert>
+
+    <select id="registerIdCheck"
+            parameterType="string"
+            resultType="int">
+
+        select count(*)
+        from register
+        where register_id = #{registerId}
+
+    </select>
+
+    <select id="registerEmailCheck"
+            parameterType="string"
+            resultType="int">
+
+        SELECT COUNT(*)
+        FROM register
+        WHERE register_email = #{registerEmail}
+
+    </select>
+
+    <select id="registerLogin"
+            parameterType="com.spring.website.pethp.dto.RegisterDTO"
+            resultType="com.spring.website.pethp.dto.RegisterDTO">
+
+        SELECT
+        register_no AS registerNo,
+        register_id AS registerId,
+        register_password AS registerPassword,
+        register_name AS registerName,
+        register_email AS registerEmail,
+        register_phone AS registerPhone,
+        TO_CHAR(register_date, 'YYYY-MM-DD') AS registerDate
+        FROM register
+        WHERE register_id = #{registerId}
+        AND register_password = #{registerPassword}
+
+    </select>
+
+    <select id="registerPasswordCheck"
+            resultType="int">
+
+        SELECT COUNT(*)
+        FROM register
+        WHERE register_no = #{registerNo}
+        AND register_password = #{currentPassword}
+
+    </select>
+
+    <update id="registerUpdate"
+            parameterType="com.spring.website.pethp.dto.RegisterDTO">
+
+        UPDATE register
+        SET
+        register_password = #{registerPassword},
+        register_name = #{registerName},
+        register_email = #{registerEmail},
+        register_phone = #{registerPhone}
+        WHERE register_no = #{registerNo}
+
+    </update>
+
+    <select id="registerDetail"
+            resultType="com.spring.website.pethp.dto.RegisterDTO">
+
+        SELECT
+        register_no AS registerNo,
+        register_id AS registerId,
+        register_password AS registerPassword,
+        register_name AS registerName,
+        register_email AS registerEmail,
+        register_phone AS registerPhone,
+        TO_CHAR(register_date, 'YYYY-MM-DD') AS registerDate
+        FROM register
+        WHERE register_no = #{registerNo}
+
+    </select>
+</mapper>
