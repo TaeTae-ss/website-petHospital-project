@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.website.pethp.mapper.NoticeMapper">
+
+    <sql id="noticeSearchCondition">
+        <if test="keyword != null and keyword != ''">
+            <choose>
+                <when test="searchType == 'title'">
+                    notice_title
+                </when>
+                <when test="searchType == 'content'">
+                    notice_content
+                </when>
+                <otherwise>
+                    notice_title
+                </otherwise>
+            </choose>
+            LIKE '%' || #{keyword} || '%'
+        </if>
+    </sql>
+
+    <select id="noticeList" resultType="NoticeDTO">
+        SELECT notice_number, notice_title,
+                TO_CHAR(notice_date,'YYYY-MM-DD') AS notice_date, notice_readcnt
+        FROM notice_board
+        ORDER BY notice_number DESC
+    </select>
+
+    <select id="selectNoticeList" parameterType="com.spring.website.common.dto.NoticeRequestDTO" resultType="noticeDTO">
+        SELECT notice_number, notice_name, notice_title,
+               TO_CHAR(notice_date,'YYYY-MM-DD') AS notice_date, notice_readcnt
+        FROM notice_board
+        <where>
+            <include refid="noticeSearchCondition" />
+        </where>
+        ORDER BY notice_number DESC
+        OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
+    </select>
+
+    <select id="selectNoticeCount" parameterType="com.spring.website.common.dto.NoticeRequestDTO" resultType="int">
+        SELECT count(*)
+        FROM notice_board
+        <where>
+            <include refid="noticeSearchCondition" />
+        </where>
+    </select>
+
+    <insert id="noticeInsert" parameterType="NoticeDTO" useGeneratedKeys="true"
+            keyProperty="noticeNumber" keyColumn="notice_number">
+        insert into notice_board(notice_title,notice_content,notice_passwd)
+        VALUES (#{noticeTitle}, #{noticeContent}, #{noticePasswd})
+    </insert>
+
+    <update id="readcntUpdate" parameterType="int">
+        UPDATE notice_board
+        SET notice_readcnt = notice_readcnt + 1
+        WHERE notice_number = #{noticeNumber}
+    </update>
+
+    <select id="noticeDetail" parameterType="int" resultType="NoticeDTO">
+        SELECT notice_number, notice_name, notice_title, notice_content,
+            TO_CHAR(notice_date,'YYYY-MM-DD HH24:MI:SS') AS notice_date, notice_readcnt
+        FROM notice_board
+        WHERE notice_number = #{noticeNumber}
+    </select>
+
+    <update id="noticeUpdate" parameterType="NoticeDTO">
+            UPDATE notice_board
+            <set>
+                notice_title = #{noticeTitle},
+                notice_content = #{noticeContent}
+                <if test="noticePasswd != null and noticePasswd != ''">
+                    , notice_passwd = #{noticePasswd}
+                </if>
+            </set>
+            WHERE notice_number = #{noticeNumber}
+    </update>
+
+    <delete id="noticeDelete" parameterType="int">
+        DELETE FROM notice_board
+        WHERE notice_number = #{noticeNumber}
+    </delete>
+
+    <select id="passwordConfirm" parameterType="noticeDTO">
+        SELECT COUNT(*)
+        FROM notice_board
+        WHERE notice_number = #{noticeNumber} AND notice_passwd = #{noticePasswd}
+    </select>
+</mapper>

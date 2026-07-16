@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+<head>
+    <title>공지 게시판 목록</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/noticelist.css}">
+    </th:block>
+</head>
+<body>
+    <section layout:fragment="content" class="py-5 mt-5">
+        <h1 class="text-center fw-bold mb-5">병원 소식</h1>
+
+        <div id="boardSearch" class="row justify-content-center mb-5">
+            <form id="searchForm" th:action="@{/pethp/notice/list}" method="get">
+                <input type="hidden" name="page" id="page" th:value="${noticeResponse.noticeRequestDTO.page}">
+                <input type="hidden" name="size" id="size" th:value="${noticeResponse.noticeRequestDTO.size}">
+            <div class="input-group border-bottom pb-2">
+                <select class="form-select border-0" style="max-width: 120px;" id="searchType" name="searchType">
+                    <option value="title" th:selected="${noticeResponse.noticeRequestDTO.searchType == 'title'}">제목</option>
+                    <option value="content" th:selected="${noticeResponse.noticeRequestDTO.searchType == 'content'}">내용</option>
+                </select>
+
+                <input type="text" id="keyword" name="keyword" th:value="${noticeResponse.noticeRequestDTO.keyword}"
+                       class="form-control border-0" placeholder="검색어를 입력해 주세요.">
+
+                <button type="submit" id="searchBtn" class="btn border-0">
+                    <i class="bi bi-search fs-5">🔍</i>
+                </button>
+
+            </div>
+            </form>
+        </div>
+
+        <table class="table align-middle notice-table">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성일</th>
+                    <th scope="col">조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${noticeResponse.list == null or #lists.isEmpty(noticeResponse.List)}">
+                    <td colspan="4" class="text-center">등록된 게시글이 없습니다.</td>
+                </tr>
+                <tr th:each="notice : ${noticeResponse.list}" class="text-center">
+                    <th scope="row" th:text="${notice.noticeNumber}"></th>
+                    <td>
+                        <a th:href="@{/pethp/notice/{noticeNumber}(noticeNumber=${notice.noticeNumber})}"
+                           th:text="${notice.noticeTitle}" class="detail">
+                        </a>
+                    </td>
+                    <td th:text="${notice.noticeDate}"></td>
+                    <td th:text="${notice.noticeReadcnt}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-end align-items-center mb-3">
+            <a th:href="@{/pethp/notice/write}" class="btn btn-primary align-items-right">글쓰기</a>
+        </div>
+
+        <nav th:if="${noticeResponse.totalCount > 0}" aria-label="공지사항 페이지 이동">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" th:if="${noticeResponse.previous}">
+                    <a class="page-link" href="#" th:data-page="${noticeResponse.startPage - 1}">
+                        <span aria-hidden="true"></span>
+                    </a>
+                </li>
+
+                <li th:each="number : ${#numbers.sequence(noticeResponse.startPage, noticeResponse.endPage)}"
+                    th:classappend="'page-item ' + ${(noticeResponse.noticeRequestDTO.page == number) ? 'active' : ''}">
+                    <a class="page-link" href="#" th:data-page="${number}" th:text="${number}"></a>
+                </li>
+
+                <li class="page-item" th:if="${noticeResponse.next}">
+                    <a class="page-link" href="#" th:data-page="${noticeResponse.endPage + 1}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </section>
+
+
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/notice/list.js}" defer></script>
+    </th:block>
+</body>
+</html>
