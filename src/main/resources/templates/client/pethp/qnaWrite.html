@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+<head>
+    <title>QnA 입력</title>
+</head>
+
+<body>
+    <section layout:fragment="content" class="py-5 mt-5">
+        <div class="mb-4"><h3>QnA 입력</h3></div>
+
+        <form id="insertForm" th:action="@{/pethp/write}" th:object="${qna}" method="post">
+            <label for="qnaCategory">문의 유형</label>
+
+            <select id="qnaCategory" th:field="*{qnaCategory}">
+                <option value="">문의 유형을 선택하세요</option>
+                <option value="진료 문의">진료 문의</option>
+                <option value="예약 문의">예약 문의</option>
+                <option value="비용 문의">비용 문의</option>
+                <option value="예방접종 문의">예방접종 문의</option>
+                <option value="수술 문의">수술 문의</option>
+                <option value="기타 문의">기타 문의</option>
+            </select>
+
+            <div class="mb-3 row">
+                <label for="qnaName" class="col-sm-3 col-form-label">작성자</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="qnaName" th:field="*{qnaName}"
+                    placeholder="작성자를 입력하세요">
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label for="qnaTitle" class="col-sm-3 col-form-label">제목</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="qnaTitle" th:field="*{qnaTitle}"
+                           placeholder="제목 입력하세요">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="qnaContent" class="col-sm-3 col-form-label">내용</label>
+                <div class="col-sm-9">
+                    <textarea type="text" class="form-control" id="qnaContent" th:field="*{qnaContent}" rows="3"
+                              placeholder="내용을 입력하세요"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="qnaPasswd" class="col-sm-3 col-form-label">비밀번호</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="qnaPasswd" th:field="*{qnaPassword}" placeholder="비밀번호를 입력하세요">
+                </div>
+            </div>
+
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary" id="qnaInsertBtn">글 저장</button>
+                <button type="reset" class="btn btn-primary" id="qnaCancelBtn">입력 취소</button>
+                <a th:href="@{/pethp/qna}" id="qnaListBtn" class="btn btn-outline-secondary">글 목록</a>
+            </div>
+        </form>
+    </section>
+
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/qnaWrite.js}" defer></script>
+    </th:block>
+</body>
+</html>

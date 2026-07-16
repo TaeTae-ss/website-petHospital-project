@@ -1,11 +1,13 @@
-package com.spring.website.pethp.service;
-
+package com.spring.website.pethp.mapper;
 
 import com.spring.website.pethp.dto.QnADTO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-public interface PetService {
+@Mapper
+public interface QnAMapper {
     List<QnADTO> qnaList();
+
     int qnaInsert(QnADTO qnaDTO);
 }
