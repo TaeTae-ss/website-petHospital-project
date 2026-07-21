@@ -14,4 +14,5 @@ public interface QnAMapper {
     int qnaInsert(QnADTO qnaDTO);
     int readCntUpdate(@Param("qnaNumber")int qnaNumber);
     Optional<QnADTO> qnaDetail(@Param("qnaNumber") int qnaNumber);
+    int qnaDelete(@Param("qnaNumber")int qnaNumber);
 }

@@ -32,10 +32,16 @@
     
     <select id="qnaDetail" parameterType="int" resultMap="qnaResult">
         SELECT
-            qna_num, qna_category, qna_title, TO_CHAR(qna_date,'YYYY-MM-DD') AS qna_date,
-            qna_content, qna_pwd
+            qna_num,qna_name, qna_category, qna_title, TO_CHAR(qna_date,'YYYY-MM-DD') AS qna_date,
+            qna_content, qna_Readcnt, qna_pwd
         FROM pet_qna_board
         WHERE qna_num = #{qnaNumber}
     </select>
+
+    <delete id="qnaDelete" parameterType="int" >
+        DELETE FROM pet_qna_board
+        WHERE qna_num = #{qnaNumber}
+    </delete>
+
 
 </mapper>

@@ -1,13 +1,17 @@
-const updateFormBtn = document.querySelector("#updateFormBtn");
-const qnaDeleteBtn =document.querySelector("#qnaCancelBtn");
-updateFormBtn.addEventListener("click", function (){
-    const qnaNumber = document.querySelector("#qnaNumber").value;
-    locationProcess(`/qna/${qnaNumber}/update`);
-});
+const qnaDeleteBtn = document.querySelector("#qnaDeleteBtn");
 
-qnaDeleteBtn.addEventListener("click", function (){
-    if(!confirm("삭제하시겠습니까?")){
+qnaDeleteBtn.addEventListener("click", function () {
+    const password = document.querySelector("#qnaPassword").value;
+
+    if(password.trim() === ""){
+        alert("비밀번호를 입력하세요.");
         return;
     }
-    formSubmit("dataForm", "post","qna/delete");
+
+    if (!confirm("삭제하시겠습니까?")) {
+        return;
+    }
+
+
+    formSubmit("dataForm", "post", "/pethp/qna/delete");
 });

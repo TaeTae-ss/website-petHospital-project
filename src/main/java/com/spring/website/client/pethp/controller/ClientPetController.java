@@ -43,11 +43,11 @@ public class ClientPetController {
         return "client/pethp/qnaDetail";
     }
 
-    @GetMapping("/qna/{qnaNumber}/update")
-    public String qnaUpdateForm(@PathVariable int qnaNumber, Model model){
-        QnADTO qnaDTO = petService.qnaUpdateForm(qnaNumber);
-        model.addAttribute("qna", qnaDTO);
-        return "client/pethp/qnaUpdate";
+    @PostMapping("/qna/delete")
+    public String qnaDelete(QnADTO qnaDTO){
+        petService.qnaDelete(qnaDTO);
+        return "redirect:/pethp/qna";
     }
+
 
 }

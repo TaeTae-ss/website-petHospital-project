@@ -29,10 +29,22 @@ public class PetServiceImpl implements PetService {
         return qnaMapper.qnaDetail(qnaNumber)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
     }
+
     @Override
-    public QnADTO qnaUpdateForm(int qnaNumber){
-        return qnaMapper.qnaDetail(qnaNumber)
-                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
+    public int qnaDelete(QnADTO qnaDTO){
+
+        QnADTO savedQna = qnaMapper.qnaDetail(qnaDTO.getQnaNumber())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
+
+        if (!savedQna.getQnaPassword().equals(qnaDTO.getQnaPassword())) {
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
+
+        return qnaMapper.qnaDelete(qnaDTO.getQnaNumber());
     }
 
-}
+    }
+
+
+

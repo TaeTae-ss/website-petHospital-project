@@ -9,5 +9,7 @@ public interface PetService {
     List<QnADTO> qnaList();
     int qnaInsert(QnADTO qnaDTO);
     QnADTO qnaDetail(int qnaNumber);
-    QnADTO qnaUpdateForm(int qnaNumber);
+    int qnaDelete(QnADTO qnADTO);
+
+
 }

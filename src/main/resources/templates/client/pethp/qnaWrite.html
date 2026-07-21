@@ -8,12 +8,16 @@
 
 <body>
     <section layout:fragment="content" class="py-5 mt-5">
-        <div class="mb-4"><h3>QnA 입력</h3></div>
+        <div class="mb-4"><h3>QnA 입력</h3>
+            <p class="text-secondary mb-0">
+                궁금한 사항을 남겨주시면 확인 후 답변드리겠습니다.
+            </p>
+        </div>
 
         <form id="insertForm" th:action="@{/pethp/qna-write}" th:object="${qna}" method="post">
             <label for="qnaCategory" class="col-sm-3 col-form-label">문의 유형</label>
 
-            <select id="qnaCategory" class="col-sm-3 col-form-label" th:field="*{qnaCategory}">
+            <select id="qnaCategory" class="form-select form-select-lg" th:field="*{qnaCategory}">
                 <option value="">문의 유형을 선택하세요</option>
                 <option value="진료 문의">진료 문의</option>
                 <option value="예약 문의">예약 문의</option>
@@ -23,35 +27,67 @@
                 <option value="기타 문의">기타 문의</option>
             </select>
 
-            <div class="mb-3 row">
-                <label for="qnaName" class="col-sm-3 col-form-label">작성자</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="qnaName" th:field="*{qnaName}"
-                    placeholder="작성자를 입력하세요">
+            <div class="row align-items-center mb-4">
+                <label for="qnaName"
+                       class="col-md-2 col-form-label fw-semibold">
+                    작성자 <span class="text-danger">*</span>
+                </label>
+
+                <div class="col-md-10">
+                    <input type="text"
+                           id="qnaName"
+                           th:field="*{qnaName}"
+                           class="form-control form-control-lg"
+                           placeholder="작성자를 입력하세요">
                 </div>
             </div>
 
+            <div class="row align-items-center mb-4">
+                <label for="qnaTitle"
+                       class="col-md-2 col-form-label fw-semibold">
+                    제목 <span class="text-danger">*</span>
+                </label>
 
-            <div class="mb-3 row">
-                <label for="qnaTitle" class="col-sm-3 col-form-label">제목</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="qnaTitle" th:field="*{qnaTitle}"
-                           placeholder="제목 입력하세요">
+                <div class="col-md-10">
+                    <input type="text"
+                           id="qnaTitle"
+                           th:field="*{qnaTitle}"
+                           class="form-control form-control-lg"
+                           placeholder="제목을 입력하세요">
                 </div>
             </div>
 
-            <div class="mb-3 row">
-                <label for="qnaContent" class="col-sm-3 col-form-label">내용</label>
-                <div class="col-sm-9">
-                    <textarea type="text" class="form-control" id="qnaContent" th:field="*{qnaContent}" rows="3"
+            <div class="row mb-4">
+                <label for="qnaContent"
+                       class="col-md-2 col-form-label fw-semibold">
+                    내용 <span class="text-danger">*</span>
+                </label>
+
+                <div class="col-md-10">
+                    <textarea id="qnaContent"
+                              th:field="*{qnaContent}"
+                              class="form-control"
+                              rows="8"
                               placeholder="내용을 입력하세요"></textarea>
                 </div>
             </div>
 
-            <div class="mb-3 row">
-                <label for="qnaPasswd" class="col-sm-3 col-form-label">비밀번호</label>
-                <div class="col-sm-9">
-                    <input type="password" class="form-control" id="qnaPasswd" th:field="*{qnaPassword}" placeholder="비밀번호를 입력하세요">
+            <div class="row align-items-start mb-4">
+                <label for="qnaPassword"
+                       class="col-md-2 col-form-label fw-semibold">
+                    비밀번호 <span class="text-danger">*</span>
+                </label>
+
+                <div class="col-md-10">
+                    <input type="password"
+                           id="qnaPassword"
+                           th:field="*{qnaPassword}"
+                           class="form-control form-control-lg"
+                           placeholder="비밀번호를 입력하세요">
+
+                    <div class="form-text">
+                        작성글 수정 및 삭제 시 필요한 비밀번호입니다.
+                    </div>
                 </div>
             </div>
 
