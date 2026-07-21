@@ -1,0 +1,30 @@
+CREATE TABLE pet_qna_board(
+    qna_num NUMBER GENERATED ALWAYS AS IDENTITY,
+    qna_category VARCHAR2(30),
+    qna_name VARCHAR2(15) NOT NULL,
+    qna_title VARCHAR2(1000) NOT NULL,
+
+    qna_content CLOB,
+    qna_pwd VARCHAR2(18) NOT NULL,
+    qna_readcnt NUMBER DEFAULT 0 NOT NULL,
+    qna_date DATE DEFAULT SYSDATE,
+    CONSTRAINT pet_qna_board_pk PRIMARY KEY(qna_num)
+    );
+
+    COMMENT ON TABLE pet_qna_board IS 'qna 정보';
+
+    COMMENT ON COLUMN pet_qna_board.qna_num IS 'qna 순번';
+    COMMENT ON COLUMN pet_qna_board.qna_category IS 'qna 진료문의';
+    COMMENT ON COLUMN pet_qna_board.qna_name IS 'qna 작성자';
+    COMMENT ON COLUMN pet_qna_board.qna_title IS 'qna 제목';
+    COMMENT ON COLUMN pet_qna_board.qna_content IS 'qna 내용';
+    COMMENT ON COLUMN pet_qna_board.qna_pwd IS 'qna 비밀번호';
+    COMMENT ON COLUMN pet_qna_board.qna_readcnt IS 'qna 조회수';
+    COMMENT ON COLUMN pet_qna_board.qna_date IS 'qna 등록일';
+
+    INSERT INTO pet_qna_board(qna_category,qna_name, qna_title, qna_content, qna_pwd)
+    VALUES ('기타','김지영','강아지 눈물 자국','강아지 눈물자국 지우는법 알려주세요','1234');
+    INSERT INTO pet_qna_board(qna_category,qna_name, qna_title, qna_content, qna_pwd)
+    VALUES ('진료문의','이예홍','고양이 진료문의','아기고양이 눈병','2345');
+
+     COMMIT;
