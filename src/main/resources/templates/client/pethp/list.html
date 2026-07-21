@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+<head>
+    <title>반려동물 게시판</title>
+</head>
+<body>
+    <section layout:fragment="content" class="py-5 mt-5">
+        <div class="container">
+            <!-- 제목 및 글쓰기 버튼 영역 -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>🐾 반려동물 증상 게시판</h2>
+                <a th:href="@{/pethp/write}" class="btn btn-primary btn-lg">글쓰기</a>
+            </div>
+
+            <!-- 테이블 디자인 -->
+            <table class="table table-hover table-striped align-middle">
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th style="width: 10%;">번호</th>
+                        <th style="width: 15%;">대상이름</th>
+                        <th style="width: 15%;">보호자</th>
+                        <th style="width: 35%;">제목</th>
+                        <th style="width: 15%;">등록일</th>
+                        <th style="width: 10%;">조회수</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <!-- 글이 없을 때 -->
+                    <tr th:if="${#lists.isEmpty(boardList)}">
+                        <td colspan="6" class="py-5 text-muted">등록된 게시글이 없습니다.</td>
+                    </tr>
+
+                    <!-- 글 리스트  -->
+                    <tr th:each="board : ${boardList}">
+                        <td th:text="${board.regNum}"></td>
+                        <td th:text="${board.pName}"></td>
+                        <td th:text="${board.pGuardian}"></td>
+                        <!-- 테이블의 제목 영역 (tbody 내부) -->
+                        <td class="text-center">
+                            <a th:href="@{/pethp/detail/{regNum}(regNum=${board.regNum})}"
+                               th:text="${board.title}"
+                               class="text-decoration-none text-primary fw-bold">
+
+                            </a>
+                        </td>
+                        <td th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd')}"></td>
+                        <td>
+                            <span class="badge bg-secondary" th:text="${board.viewCnt}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+<head>
+    <title>글쓰기</title>
+</head>
+<body>
+    <section layout:fragment="content" class="py-5 mt-5">
+        <div class="container col-md-8">
+
+            <div class="mb-4">
+                <h2> 게시글 작성</h2>
+                <hr>
+            </div>
+
+            <form id="updateForm" th:action="@{/pethp/update}" method="post" th:object="${board}">
+                <input type="hidden" th:field="*{regNum}">
+                <!-- 동물 이름 -->
+                <div class="row mb-3">
+                    <label for="pName" class="col-sm-2 col-form-label fw-bold">반려동물 </label>
+                    <div class="col-sm-10">
+                        <input type="text" id="pName" class="form-control"
+                               th:field="*{pName}" placeholder="반려 동물 이름을 입력하세요"required>
+                    </div>
+                </div>
+
+                <!-- 보호자명 -->
+                <div class="row mb-3">
+                    <label for="pGuardian" class="col-sm-2 col-form-label fw-bold">보호자명</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="pGuardian" class="form-control"
+                               th:field="*{pGuardian}" placeholder="보호자님 성함을 입력하세요"required>
+                    </div>
+                </div>
+
+                <!-- 제목 -->
+                <div class="row mb-3">
+                    <label for="title" class="col-sm-2 col-form-label fw-bold">제목</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="title" class="form-control"
+                               th:field="*{title}" placeholder="제목을 입력하세요"required>
+                    </div>
+                </div>
+
+                <!-- 내용 -->
+                <div class="row mb-3">
+                    <label for="pContent" class="col-sm-2 col-form-label fw-bold">내용</label>
+                    <div class="col-sm-10">
+                        <textarea id="pContent" class="form-control" rows="10"
+                                  th:field="*{pContent}" placeholder="상황을 상세히 적어주세요"required></textarea>
+                    </div>
+                </div>
+
+                <!-- 비밀번호 -->
+                <div class="row mb-3">
+                    <label for="pPwd" class="col-sm-2 col-form-label fw-bold">비밀번호</label>
+                    <div class="col-sm-10">
+                        <input type="password" id="pPwd" class="form-control"
+                               th:field="*{pPwd}" placeholder="비밀번호를 입력하세요"required>
+                    </div>
+                </div>
+
+                <!-- 버튼 영역 -->
+                <div class="text-end mt-4">
+                    <button type="button" id="updateBtn" class="btn btn-primary">수정완료</button>
+
+                    <button type="reset" id="resetBtn" class="btn btn-secondary px-4">초기화</button>
+
+                    <a th:href="@{/pethp/list}" id="listBtn" class="btn btn-outline-secondary px-4">목록으로</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/update.js}"defer></script>
+    </th:block>
+</body>
+</html>

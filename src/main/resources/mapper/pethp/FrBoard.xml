@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.website.pethp.mapper.FreeBoardMapper">
+
+    <resultMap id="boardResult" type="com.spring.website.pethp.dto.FreeBoardDTO">
+        <id property="regNum" column="regNum"/>
+        <result property="pName" column="p_Name"/>
+        <result property="pGuardian" column="p_guardian"/>
+        <result property="title" column="title"/>
+        <result property="pContent" column="p_content"/>
+        <result property="regDate" column="regDate"/>
+        <result property="pPwd" column="p_pwd"/>
+        <result property="viewCnt" column="viewCnt"/>
+    </resultMap>
+
+    <select id="selectFrBoardList" resultMap="boardResult">
+        SELECT regNum, p_Name, p_guardian, title, regDate, viewCnt
+        FROM pet_free_board
+        ORDER BY regNum DESC
+    </select>
+
+    <select id="selectDetail" parameterType="long" resultMap="boardResult">
+        SELECT regNum, p_Name, p_guardian, title, p_content, regDate, p_pwd, viewCnt
+        FROM pet_free_board
+        WHERE regNum = #{regNum}
+    </select>
+
+    <!-- 💡 조회수 증가 쿼리 추가 완료 -->
+    <update id="increaseViewCnt" parameterType="long">
+        UPDATE pet_free_board
+        SET viewCnt = viewCnt + 1
+        WHERE regNum = #{regNum}
+    </update>
+
+    <insert id="insertBoard" parameterType="com.spring.website.pethp.dto.FreeBoardDTO">
+        INSERT INTO pet_free_board (p_Name, p_guardian, title, p_content, p_pwd)
+        VALUES (
+        #{pName, jdbcType=VARCHAR},
+        #{pGuardian, jdbcType=VARCHAR},
+        #{title, jdbcType=VARCHAR},
+        #{pContent, jdbcType=VARCHAR},
+        #{pPwd, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <update id="updateBoard" parameterType="com.spring.website.pethp.dto.FreeBoardDTO">
+        UPDATE pet_free_board
+        SET p_Name = #{pName},
+        p_guardian = #{pGuardian},
+        title = #{title},
+        p_content = #{pContent}
+        WHERE regNum = #{regNum}
+    </update>
+
+    <delete id="deleteBoard" parameterType="long">
+        DELETE FROM pet_free_board WHERE regNum = #{regNum}
+    </delete>
+
+</mapper>
