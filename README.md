@@ -33,3 +33,6 @@
 | 설명 | 매핑 정보 | HTTP메서드/메서드명 | VIEW 처리 결과 |
 |------|----------|--------------------|------------------|
 | 공지게시판 목록 | /pethp/notice/list | GET/noticeList | client/pethp/notice/list |
+| 공지게시판 글 등록 화면 | /pethp/notice/write | GET/noticeWrite | client/pethp/notice/write |
+| 공지게시판 글 등록 처리 | /pethp/notice/write | POST/noticeInsert | redirect:/pethp/notice/list |
+| 공지게시판 상세 조회 | /pethp/notice/detail/{noticeNumber} | GET/noticeDetail | client/pethp/notice/detail |
