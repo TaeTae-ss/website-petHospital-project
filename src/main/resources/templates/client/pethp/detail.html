@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+<head>
+    <title>글 상세 보기</title>
+</head>
+<body>
+    <section layout:fragment="content" class="py-5 mt-5">
+        <div class="container col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3">
+                    <h3 class="fw-bold" th:text="${board.title}">글 제목</h3>
+                    <div class="text-muted small">
+                        작성자: <span th:text="${board.pGuardian}">보호자</span> |
+                        아이이름: <span th:text="${board.pName}">이름</span> |
+                        등록일: <span th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd HH:mm')}">날짜</span>
+                    </div>
+                </div>
+
+                <div class="card-body p-4" style="min-height: 300px;">
+                    <p class="card-text" th:text="${board.pContent}" style="white-space: pre-wrap;">내용이 들어갑니다.</p>
+                </div>
+
+                <!-- 수정된 card-footer 부분 -->
+                <div class="card-footer bg-light text-end p-3">
+                    <a th:href="@{/pethp/list}" class="btn btn-outline-secondary">목록으로</a>
+                    <a th:href="@{/pethp/write}" class="btn btn-outline-secondary">글쓰기</a>
+
+                    <button type="button" id="deleteBtn" class="btn btn-danger" th:data-regNum="${board.regNum}">삭제하기</button>
+                    <button type="button" id="updateBtn" class="btn btn-warning" th:data-regNum="${board.regNum}">수정하기</button>
+                </div>
+            </div>
+        </div>
+        <form id="deleteForm" method="post" style="display:none;">
+        </form>
+    </section>
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/detail.js}"defer></script>
+    </th:block>
+
+</body>
+</html>
