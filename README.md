@@ -25,6 +25,8 @@
 - GitHub
 - IntelliJ
 
+---
+
 # 3. 팀원 역할
 
 ---
@@ -53,3 +55,4 @@
 | Q&A 삭제처리 | /qna/delete | POST/qnaDelete() | redirect:/pethp/qna |
 |  |  |  |  |
 
+---
