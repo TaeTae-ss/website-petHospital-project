@@ -31,4 +31,5 @@
 
 # 4. 매핑 정보
 | 설명 | 매핑 정보 | HTTP메서드/메서드명 | VIEW 처리 결과 |
+|------|----------|--------------------|------------------|
 | 공지게시판 목록 | /pethp/notice/list | GET/noticeList | client/pethp/notice/list |
