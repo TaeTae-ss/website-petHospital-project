@@ -149,8 +149,25 @@ public class AdminPetController {
             return "client/mypage";
         }
 
-        // 화면에서 넘어온 번호를 신뢰하지 않고
-        // 세션 회원번호를 사용
+        // 이메일이 변경된 경우에만 중복 검사
+        if (!loginMember.getRegisterEmail()
+                .equals(registerDTO.getRegisterEmail())) {
+
+            int emailCount =
+                    registerService.registerEmailCheck(
+                            registerDTO.getRegisterEmail()
+                    );
+
+            if (emailCount > 0) {
+                model.addAttribute(
+                        "errorMessage",
+                        "이미 사용 중인 이메일입니다."
+                );
+
+                return "client/mypage";
+            }
+        }
+
         registerDTO.setRegisterNo(
                 loginMember.getRegisterNo()
         );

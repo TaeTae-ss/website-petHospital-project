@@ -38,11 +38,6 @@
               th:action="@{/mypage/update}"
               method="post">
 
-            <!-- 회원번호는 화면에 보여줄 필요가 없으므로 hidden -->
-            <input type="hidden"
-                   name="registerNo"
-                   th:value="${session.loginMember.registerNo}"/>
-
             <div class="input-group">
                 <label for="registerId">아이디</label>
 

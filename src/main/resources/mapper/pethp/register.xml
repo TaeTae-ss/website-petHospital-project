@@ -55,7 +55,6 @@
         SELECT
         register_no AS registerNo,
         register_id AS registerId,
-        register_password AS registerPassword,
         register_name AS registerName,
         register_email AS registerEmail,
         register_phone AS registerPhone,
@@ -80,11 +79,17 @@
             parameterType="com.spring.website.pethp.dto.RegisterDTO">
 
         UPDATE register
-        SET
-        register_password = #{registerPassword},
-        register_name = #{registerName},
-        register_email = #{registerEmail},
-        register_phone = #{registerPhone}
+
+        <set>
+            <if test="registerPassword != null and registerPassword != ''">
+                register_password = #{registerPassword},
+            </if>
+
+            register_name = #{registerName},
+            register_email = #{registerEmail},
+            register_phone = #{registerPhone}
+        </set>
+
         WHERE register_no = #{registerNo}
 
     </update>
@@ -95,7 +100,6 @@
         SELECT
         register_no AS registerNo,
         register_id AS registerId,
-        register_password AS registerPassword,
         register_name AS registerName,
         register_email AS registerEmail,
         register_phone AS registerPhone,

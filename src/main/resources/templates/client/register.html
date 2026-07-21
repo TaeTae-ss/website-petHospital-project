@@ -4,11 +4,14 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/client/layout}">
 
-<link rel="stylesheet"
-      th:href="@{/css/register.css}">
 <head>
     <meta charset="UTF-8"/>
     <title>회원가입</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet"
+              th:href="@{/css/register.css}"/>
+    </th:block>
 </head>
 
 <body>
@@ -16,7 +19,6 @@
     <section layout:fragment="content">
         <h1>회원가입</h1>
 
-        <!-- 서버에서 전달한 아이디·이메일 중복 오류 -->
         <p th:if="${errorMessage != null}"
            th:text="${errorMessage}"
            class="server-error">
