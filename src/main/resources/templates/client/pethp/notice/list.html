@@ -12,7 +12,7 @@
 </head>
 <body>
     <section layout:fragment="content" class="py-5 mt-5">
-        <h1 class="text-center fw-bold mb-5">병원 소식</h1>
+        <h1 class="text-center fw-bold mb-5">동물병원 소식</h1>
 
         <div id="boardSearch" class="row justify-content-center mb-5">
             <form id="searchForm" th:action="@{/pethp/notice/list}" method="get">
@@ -35,6 +35,7 @@
             </form>
         </div>
 
+        <div class="board-table-height">
         <table class="table align-middle notice-table">
             <thead>
                 <tr class="text-center">
@@ -60,6 +61,7 @@
                 </tr>
             </tbody>
         </table>
+        </div>
 
         <div class="d-flex justify-content-end align-items-center mb-3">
             <a th:href="@{/pethp/notice/write}" class="btn btn-primary align-items-right">글쓰기</a>

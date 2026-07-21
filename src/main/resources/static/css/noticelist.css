@@ -2,6 +2,6 @@ a {
     text-decoration: none;
 }
 
-.notice-content {
-    white-space: pre-wrap;
+.board-table-height {
+    height: 500px;
 }
