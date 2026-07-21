@@ -55,11 +55,11 @@
 | 자유 게시글 수정 폼 | /pethp/update/{regNum} | GET/modifyForm() | client/pethp/update |
 | 기존 게시글 DB 수정 처리 | /pethp/update/{regNum} | POST/modifyBoard() | redirect:/pethp/detail/{regNum} |
 | 자유 기존 게시글 DB 수정 처리 | /pethp/delete/{regNum} | POST/deleteBoard() | redirect:/pethp/list |
-| Q&A목록 조회 | /qna	 | GET/qnaList() | client.pethp/qna |
-| Q&A글쓰기 화면 | qna-write | GET/qnaWriteForm() | client/pethp/qnaWrite |
-| Q&A 글 등록 처리 | qna-write | POST/qnaInsertForm() | redirect:/pethp/qna |
-| Q&A 상세조회 | /qna/{qnaNumber} | GET/qnaDetail() | client/pethp/qnaDetail |
-| Q&A 삭제처리 | /qna/delete | POST/qnaDelete() | redirect:/pethp/qna |
+| Q&A목록 조회 | /pethp/qna	 | GET/qnaList() | client.pethp/qna |
+| Q&A글쓰기 화면 | /pethp/qna-write | GET/qnaWriteForm() | client/pethp/qnaWrite |
+| Q&A 글 등록 처리 | /pethp/qna-write | POST/qnaInsertForm() | redirect:/pethp/qna |
+| Q&A 상세조회 | /pethp/qna/{qnaNumber} | GET/qnaDetail() | client/pethp/qnaDetail |
+| Q&A 삭제처리 | /pethp/qna/delete | POST/qnaDelete() | redirect:/pethp/qna |
 |  |  |  |  |
 
 ---
