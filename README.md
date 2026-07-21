@@ -51,5 +51,5 @@
 | Q&A 글 등록 처리 | qna-write | POST/qnaInsertForm() | redirect:/pethp/qna |
 | Q&A 상세조회 | /qna/{qnaNumber} | GET/qnaDetail() | client/pethp/qnaDetail |
 | Q&A 삭제처리 | /qna/delete | POST/qnaDelete() | redirect:/pethp/qna |
-|  |  | () |  |
+|  |  |  |  |
 
