@@ -70,4 +70,8 @@
 
 # 5. 이미지
 
+
+## 5-1. Main Page
+
+![Main](image/readme/home.jpg)
 ---
