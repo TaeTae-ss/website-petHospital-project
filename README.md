@@ -1,4 +1,4 @@
-z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
+# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 # 1. 프로젝트 소개 및 선정 이유
 ---
