@@ -37,10 +37,6 @@ noticePasswdInput.addEventListener("input", () => {
     resetPasswordMessage();
 });
 
-const locationProcess = (url) => {
-    location.href = url;
-}
-
 const dataForm = document.querySelector("#dataForm");
 
 document.querySelector("#passwordBtn").addEventListener("click", () => {
