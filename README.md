@@ -37,28 +37,35 @@
 ---
 
 # 4. 매핑 정보
-| 설명 | 매핑 정보 | HTTP메서드/메서드명 | VIEW 처리 결과 |
+| 설명 | 매핑 정보 | HTTP메서드·메서드명 | VIEW 처리 결과 |
 |------|----------|--------------------|------------------|
-| 공지게시판 목록 | /pethp/notice/list | GET/noticeList() | client/pethp/notice/list |
-| 공지게시판 글 등록 화면 | /pethp/notice/write | GET/noticeWrite() | client/pethp/notice/write |
-| 공지게시판 글 등록 처리 | /pethp/notice/write | POST/noticeInsert() | redirect:/pethp/notice/list |
-| 공지게시판 상세 조회 | /pethp/notice/detail/{noticeNumber} | GET/noticeDetail() | client/pethp/notice/detail |
-| 공지게시판 수정 화면 | /pethp/notice/ue/{noticeNumber} | GET/updateForm() | client/pethp/notice/update |
-| 공지게시판 수정 처리 | /pethp/notice/{noticeNumber}/update  | POST/noticeUpdate() | redirect:/pethp/notice/{noticeNumber} |
-| 공지 게시판 삭제 처리 | /pethp/notice/{noticeNumber}/delete | POST/noticeDelete() | redirect:/pethp/notice/list |
-| 자유 게시글 목록 페이지 조회 | /pethp/list | GET/boardList() | client/pethp/list |
-| 자유 게시글 작성 폼(화면) 이동 | /pethp/write | GET/writeForm() | client/pethp/write | 
-| 자유 게시글 DB 등록 처리 | /pethp/write | POST/boardInsert() | redirect:/pethp/list |
-| 자유 게시글 상세 조회 | /pethp/detail/{regNum} | GET/detail() | client/pethp/detail |
-| 자유 게시글 수정 폼 | /pethp/update/{regNum} | GET/modifyForm() | client/pethp/update |
-| 기존 게시글 DB 수정 처리 | /pethp/update/{regNum} | POST/modifyBoard() | redirect:/pethp/detail/{regNum} |
-| 자유 기존 게시글 DB 수정 처리 | /pethp/delete/{regNum} | POST/deleteBoard() | redirect:/pethp/list |
-| Q&A목록 조회 | /pethp/qna	 | GET/qnaList() | client.pethp/qna |
-| Q&A글쓰기 화면 | /pethp/qna-write | GET/qnaWriteForm() | client/pethp/qnaWrite |
-| Q&A 글 등록 처리 | /pethp/qna-write | POST/qnaInsertForm() | redirect:/pethp/qna |
-| Q&A 상세조회 | /pethp/qna/{qnaNumber} | GET/qnaDetail() | client/pethp/qnaDetail |
-| Q&A 삭제처리 | /pethp/qna/delete | POST/qnaDelete() | redirect:/pethp/qna |
-|  |  |  |  |
+| 공지게시판 목록 | /pethp/notice/list | GET·noticeList() | client/pethp/notice/list |
+| 공지게시판 글 등록 화면 | /pethp/notice/write | GET·noticeWrite() | client/pethp/notice/write |
+| 공지게시판 글 등록 처리 | /pethp/notice/write | POST·noticeInsert() | redirect:/pethp/notice/list |
+| 공지게시판 상세 조회 | /pethp/notice/detail/{noticeNumber} | GET·noticeDetail() | client/pethp/notice/detail |
+| 공지게시판 수정 화면 | /pethp/notice/ue/{noticeNumber} | GET·updateForm() | client/pethp/notice/update |
+| 공지게시판 수정 처리 | /pethp/notice/{noticeNumber}/update  | POST·noticeUpdate() | redirect:/pethp/notice/{noticeNumber} |
+| 공지 게시판 삭제 처리 | /pethp/notice/{noticeNumber}/delete | POST·noticeDelete() | redirect:/pethp/notice/list |
+| 자유 게시글 목록 페이지 조회 | /pethp/list | GET·boardList() | client/pethp/list |
+| 자유 게시글 작성 폼(화면) 이동 | /pethp/write | GET·writeForm() | client/pethp/write | 
+| 자유 게시글 DB 등록 처리 | /pethp/write | POST·boardInsert() | redirect:/pethp/list |
+| 자유 게시글 상세 조회 | /pethp/detail/{regNum} | GET·detail() | client/pethp/detail |
+| 자유 게시글 수정 폼 | /pethp/update/{regNum} | GET·modifyForm() | client/pethp/update |
+| 기존 게시글 DB 수정 처리 | /pethp/update/{regNum} | POST·modifyBoard() | redirect:/pethp/detail/{regNum} |
+| 자유 기존 게시글 DB 수정 처리 | /pethp/delete/{regNum} | POST·deleteBoard() | redirect:/pethp/list |
+| Q&A목록 조회 | /pethp/qna	 | GET·qnaList() | client.pethp/qna |
+| Q&A글쓰기 화면 | /pethp/qna-write | GET·qnaWriteForm() | client/pethp/qnaWrite |
+| Q&A 글 등록 처리 | /pethp/qna-write | POST·qnaInsertForm() | redirect:/pethp/qna |
+| Q&A 상세조회 | /pethp/qna/{qnaNumber} | GET·qnaDetail() | client/pethp/qnaDetail |
+| Q&A 삭제처리 | /pethp/qna/delete | POST·qnaDelete() | redirect:/pethp/qna |
+|
+| 회원가입 화면 이동  | /pethp/register | GET·registerForm()    | client/register.html |
+| 회원가입 처리     | /pethp/register | POST·registerInsert() | 성공: redirect:/<br>실패: client/register.html |
+| 로그인 화면 이동   | /pethp/login | GET·loginForm() | client/login.html |
+| 로그인 처리      | /pethp/login | POST·login() | 성공: redirect:/<br>실패: client/login.html |
+| 로그아웃 처리     | /pehtp/logout | GET·logout() | redirect:/ |
+| 마이페이지 화면 이동 | /pethp/mypage | GET·mypage() | 로그인 상태: client/mypage.html<br>비로그인 상태:redirect:/login |
+| 회원정보 수정 처리  | /pethp/mypage/update` | POST·mypageUpdate() | 성공:redirect:/mypage<br>실패:client/mypage.html |
 
 ---
 
