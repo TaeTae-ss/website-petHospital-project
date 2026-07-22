@@ -83,7 +83,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 ---
 
-##5-2.1 Login Page
+## 5-2.1 Login Page
 
 ![Login](src/main/resources/static/image/readme/login.png)
 
@@ -92,7 +92,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 ---
 
-##5-2.2 Register Page
+## 5-2.2 Register Page
 
 ![Register](src/main/resources/static/image/readme/register.png)
 
@@ -101,7 +101,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 ---
 
-##5-2.3 LoginMain Page
+## 5-2.3 LoginMain Page
 
 ![LoginMain](src/main/resources/static/image/readme/loginMain.png)
 
@@ -110,7 +110,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 ---
 
-##5-2.4 UserInfo Page
+## 5-2.4 UserInfo Page
 
 ![userInfo](src/main/resources/static/image/readme/userInfo.png)
 
@@ -119,7 +119,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 ---
 
-##5-2.5 UserInfoModify Page
+## 5-2.5 UserInfoModify Page
 
 ![userInfoModify](src/main/resources/static/image/readme/userInfoModify.png)
 
