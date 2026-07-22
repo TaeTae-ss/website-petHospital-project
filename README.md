@@ -97,7 +97,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 ![Register](src/main/resources/static/image/readme/register.png)
 
 ### 설명
-회원가입 페이지입니다. 회원의 정보를 모두 입력하셔야 회원가입이 가능합니다.
+회원가입 페이지입니다. 회원의 정보를 모두 입력하셔야 하고, 아이디 및 비밀번호는 정규표현식에 맞게 입력해야 회원가입이 가능합니다.
 
 ---
 
@@ -153,7 +153,7 @@ z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 ---
 
-## 5-3.4 NoticeUpDate Page
+## 5-3.4 NoticeUpdate Page
 
 ![NoticeDetail](src/main/resources/static/image/readme/noticeUpdate.jpg)
 
