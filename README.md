@@ -81,5 +81,27 @@
 ### 설명
 
 
-메인페이지에서는 병원 배너를 통해 로그인 및 회원가입을 할 수 있습니다.
+메인페이지에서는 병원 배너를 통해 로그인 및 회원가입을 할 수 있습니다. 헤더 부분의 라벨을 통해서 각 게시판을 이용할 수 있습니다.
 
+---
+
+## 5-2.1 Notice Page
+
+![Main](src/main/resources/static/image/readme/noticeList.jpg)
+
+### 설명
+공지사항 목록을 볼 수 있는 페이지입니다. 한페이지당 10개의 게시글로 페이징 처리 하였으며 제목을 누를시 상세페이지로 이동합니다. 관리자만 글쓰기 버튼을 통해서 글을 쓸 수 있습니다.
+
+## 5-2.2 NoticeWrite Page
+
+![Main](src/main/resources/static/image/readme/noticeWrite.jpg)
+
+### 설명
+공지사항을 쓸 수 있는 페이지입니다. 목록 버튼을 통해 공지 게시글 목록으로 갈 수 있으며 초기화 버튼을 누를시 입력값이 초기화 됩니다. 등록 버튼을 누르면 공지사항에 등록됩니다.
+
+## 5-2.3 NoticeDetail Page
+
+![Main](src/main/resources/static/image/readme/noticedetail.jpg)
+
+### 설명
+공지사항 상세 페이지입니다. 수정 및 삭제 버튼을 누르면 왼쪽 하단 비밀번호 입력칸이 활성화 되며 비밀번호가 같을 경우 수정 및 삭제가 가능합니다.
