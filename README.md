@@ -73,5 +73,5 @@
 
 ## 5-1. Main Page
 
-![Main](image/readme/home.jpg)
+![Main](src/main/resources/static/image/readme/home.jpg)
 ---
