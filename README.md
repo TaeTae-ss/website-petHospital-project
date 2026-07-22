@@ -1,4 +1,4 @@
-# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
+z# Pet Hospital Project - 우태식, 문혜원, 홍의진, 김태현
 
 # 1. 프로젝트 소개 및 선정 이유
 ---
@@ -79,13 +79,54 @@
 ![Main](src/main/resources/static/image/readme/home.jpg)
 
 ### 설명
-
-
 메인페이지에서는 병원 배너를 통해 로그인 및 회원가입을 할 수 있습니다. 헤더 부분의 라벨을 통해서 각 게시판을 이용할 수 있습니다.
 
 ---
 
-## 5-2.1 Notice Page
+##5-2.1 Login Page
+
+![Login](src/main/resources/static/image/readme/login.png)
+
+### 설명
+로그인 페이지입니다. 회원가입 버튼을 누르면 회원가입 페이지로 넘어가며 회원가입된 아이디 및 비밀번호로 로그인 할 수 있습니다.
+
+---
+
+##5-2.2 Register Page
+
+![Register](src/main/resources/static/image/readme/register.png)
+
+### 설명
+회원가입 페이지입니다. 회원의 정보를 모두 입력하셔야 회원가입이 가능합니다.
+
+---
+
+##5-2.3 LoginMain Page
+
+![LoginMain](src/main/resources/static/image/readme/loginMain.png)
+
+### 설명
+로그인 메인 페이지입니다. 로그인을 하게 되면 메인 페이지로 이동하며 회원정보 버튼을 누르면 회원정보를 볼 수 있으면 로그아웃 버튼을 누르면 로그아웃합니다.
+
+---
+
+##5-2.4 UserInfo Page
+
+![userInfo](src/main/resources/static/image/readme/userInfo.png)
+
+### 설명
+회원정보 페이지입니다. 로그인 당시에 회원정보를 볼 수 있으며 회원수정 버튼을 누를시 회원정보 수정을 할 수 있습니다.
+
+---
+
+##5-2.5 UserInfoModify Page
+
+![userInfoModify](src/main/resources/static/image/readme/userInfoModify.png)
+
+### 설명
+회원정보 수정 페이지입니다. 비밀번호, 이름, 이메일, 전화번호를 수정할 수 있으며 현재 비밀번호를 입력해야 수정이 가능합니다.
+
+## 5-3.1 Notice Page
 
 ![Notice](src/main/resources/static/image/readme/noticeList.jpg)
 
@@ -94,7 +135,7 @@
 
 ---
 
-## 5-2.2 NoticeWrite Page
+## 5-3.2 NoticeWrite Page
 
 ![NoticeWrite](src/main/resources/static/image/readme/noticeWrite.jpg)
 
@@ -103,7 +144,7 @@
 
 ---
 
-## 5-2.3 NoticeDetail Page
+## 5-3.3 NoticeDetail Page
 
 ![NoticeDetail](src/main/resources/static/image/readme/noticeDetail.jpg)
 
@@ -112,7 +153,7 @@
 
 ---
 
-## 5-2.4 NoticeUpDate Page
+## 5-3.4 NoticeUpDate Page
 
 ![NoticeDetail](src/main/resources/static/image/readme/noticeUpdate.jpg)
 
@@ -121,7 +162,7 @@
 
 ---
 
-## 5-3.1 Freeboard Page
+## 5-4.1 Freeboard Page
 
 ![Freeboard](src/main/resources/static/image/readme/freeboardlist.png)
 
@@ -130,7 +171,7 @@
 
 ---
 
-## 5-3.2 FreeboardWrite Page
+## 5-4.2 FreeboardWrite Page
 
 ![FreeboardWrite](src/main/resources/static/image/readme/freeboardwrite.png)
 
@@ -139,7 +180,7 @@
 
 ---
 
-## 5-3.3 FreeboardDetail Page
+## 5-4.3 FreeboardDetail Page
 
 ![FreeboardDetail](src/main/resources/static/image/readme/freeboarddetail.png)
 
@@ -148,7 +189,7 @@
 
 ---
 
-## 5-3.4 FreeboardUpdate Page
+## 5-4.4 FreeboardUpdate Page
 
 ![FreeboardUpdate](src/main/resources/static/image/readme/freeboardupdate.png)
 
@@ -157,7 +198,7 @@
 
 ---
 
-## 5-4.1 Q&A Page
+## 5-5.1 Q&A Page
 
 ![Q&A](src/main/resources/static/image/readme/Qna-list.png)
 
@@ -166,7 +207,7 @@
 
 ---
 
-## 5-4.2 Q&A Write Page
+## 5-5.2 Q&A Write Page
 
 ![Q&A Write](src/main/resources/static/image/readme/Qna-write.png)
 
@@ -175,7 +216,7 @@
 
 ---
 
-## 5-4.3 Q&A detail Page
+## 5-5.3 Q&A detail Page
 
 ![Q&A detail](src/main/resources/static/image/readme/Qna-detail.png)
 
