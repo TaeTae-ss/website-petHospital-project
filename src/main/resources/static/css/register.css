@@ -1,0 +1,11 @@
+.input-error,
+.server-error {
+    min-height: 20px;
+    margin: 4px 0 10px;
+    color: red;
+    font-size: 14px;
+}
+
+.server-error {
+    font-weight: bold;
+}

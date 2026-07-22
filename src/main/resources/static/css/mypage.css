@@ -1,0 +1,63 @@
+.mypage-container {
+    max-width: 650px;
+    margin: 40px auto;
+}
+
+.mypage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group input[readonly] {
+    background-color: #f3f3f3;
+    color: #666;
+}
+
+.input-error,
+.server-error {
+    min-height: 20px;
+    margin: 5px 0 0;
+    color: red;
+    font-size: 14px;
+}
+
+.server-error {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.password-check-area {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.password-check-area h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.button-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}

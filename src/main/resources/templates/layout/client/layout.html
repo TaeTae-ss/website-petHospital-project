@@ -7,7 +7,6 @@
     <th:block th:replace="~{layout/client/fragments/config :: config}"></th:block>
 
     <th:block layout:fragment="css"></th:block>
-    <th:block layout:fragment="script"></th:block>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header th:replace="~{layout/client/fragments/header :: header}"></header>
@@ -19,5 +18,7 @@
     </main>
 
     <footer th:replace="~{layout/client/fragments/footer :: footer}"></footer>
+
+    <th:block layout:fragment="script"></th:block>
 </body>
 </html>
