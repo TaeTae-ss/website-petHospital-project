@@ -74,4 +74,8 @@
 ## 5-1. Main Page
 
 ![Main](src/main/resources/static/image/readme/home.jpg)
+
+### 설명
+
+메인페이지에서는 병원 배너를 통해 로그인 및 회원가입을 할 수 있습니다.
 ---
