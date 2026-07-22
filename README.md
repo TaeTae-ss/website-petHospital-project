@@ -64,7 +64,7 @@
 | 로그인 처리      | /pethp/login | POST·login() | 성공: redirect:/<br>실패: client/login.html |
 | 로그아웃 처리     | /pehtp/logout | GET·logout() | redirect:/ |
 | 마이페이지 화면 이동 | /pethp/mypage | GET·mypage() | 로그인 상태: client/mypage.html<br>비로그인 상태:redirect:/login |
-| 회원정보 수정 처리  | /pethp/mypage/update` | POST·mypageUpdate() | 성공:redirect:/mypage<br>실패:client/mypage.html |
+| 회원정보 수정 처리  | /pethp/mypage/update | POST·mypageUpdate() | 성공:redirect:/mypage<br>실패:client/mypage.html |
 
 ---
 
