@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/layout}">
+<head>
+    <title>공지사항 수정</title>
+</head>
+<body>
+    <section layout:fragment="content" class="py-5 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0">공지사항 수정</h4>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form id="updateForm" th:action="@{/pethp/notice/update}" th:object="${notice}" method="post">
+                            <input type="hidden" name="noticeNumber" th:value="*{noticeNumber}">
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">작성자</label>
+                                    <input type="text" class="form-control" value="관리자" readonly>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">비밀번호</label>
+                                    <input type="password" class="form-control"
+                                           th:field="*{noticePasswd}" placeholder="비밀번호를 입력하세요." required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    제목
+                                </label>
+                                <input type="text" class="form-control" th:field="*{noticeTitle}"
+                                       placeholder="공지 제목을 입력하세요." required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    내용
+                                </label>
+                                <textarea class="form-control" rows="12" th:field="*{noticeContent}"
+                                          placeholder="공지 내용을 입력하세요." required></textarea>
+                            </div>
+
+                            <div class="d-flex justify-content-end gap-2">
+
+                                <a th:href="@{/pethp/notice/list}" class="btn btn-outline-secondary">
+                                    목록
+                                </a>
+
+                                <button type="reset" class="btn btn-warning">
+                                    초기화
+                                </button>
+
+                                <button type="submit" class="btn btn-primary">
+                                    등록
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/notice/write.js}" defer></script>
+    </th:block>
+</body>
+</html>
