@@ -3,16 +3,25 @@
       xmlns:th="http://www.thymeleaf.org">
 <body>
 
-    <footer th:fragment="footer">
-        <div class="footer-container">
-            <p>© 2026 Pet Hospital. All Rights Reserved.</p>
+    <footer th:fragment="footer" class="bg-dark text-white mt-5 py-4">
+        <div class="container">
 
-            <div class="footer-info">
-                <p>상호명 : Pet Hospital</p>
-                <p>대표 : 관리자</p>
-                <p>전화 : 02-1234-5678</p>
-                <p>이메일 : admin@pethospital.com</p>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h5 class="fw-bold">🐾 Pet Hospital</h5>
+                    <small>© 2026 Pet Hospital. All Rights Reserved.</small>
+                </div>
+
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <p class="mb-1"><strong>상호명</strong> : Pet Hospital</p>
+                    <p class="mb-1"><strong>대표</strong> : 관리자</p>
+                    <p class="mb-1"><strong>전화</strong> : 02-1234-5678</p>
+                    <p class="mb-0"><strong>이메일</strong> : admin@pethospital.com</p>
+                </div>
+
             </div>
+
         </div>
     </footer>
 
