@@ -1,0 +1,28 @@
+CREATE table notice_board (
+    notice_number NUMBER GENERATED ALWAYS AS IDENTITY,
+    notice_name VARCHAR2(15) DEFAULT '관리자',
+    notice_title VARCHAR2(1000) NOT NULL,
+    notice_content CLOB,
+    notice_passwd VARCHAR2(18) NOT NULL,
+    notice_readcnt NUMBER DEFAULT 0 NOT NULL,
+    notice_DATE DATE DEFAULT SYSDATE,
+    CONSTRAINT notice_number_pk PRIMARY KEY(notice_number)
+);
+
+insert into notice_board(notice_title,notice_content,notice_passwd)
+values ('운영 시간 안내',
+        '월| 09:00 ~ 21:00
+화| 09:00 ~ 21:00
+수| 09:00 ~ 21:00
+목| 09:00 ~ 21:00
+금| 09:00 ~ 21:00
+토| 09:00 ~ 17:00
+일| 정기휴진',
+        '1234');
+
+insert into notice_board(notice_title,notice_content,notice_passwd)
+values ('제헌절 안내',
+        '7/17 금요일을 정상 진료합니다. 7/19 일요일은 정기휴진입니다.',
+        '1234');
+
+select * from notice_board;
