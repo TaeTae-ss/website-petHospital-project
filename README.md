@@ -58,13 +58,13 @@
 | Q&A 글 등록 처리 | /pethp/qna-write | POST·qnaInsertForm() | redirect:/pethp/qna |
 | Q&A 상세조회 | /pethp/qna/{qnaNumber} | GET·qnaDetail() | client/pethp/qnaDetail |
 | Q&A 삭제처리 | /pethp/qna/delete | POST·qnaDelete() | redirect:/pethp/qna |
-| 회원가입 화면 이동  | /pethp/register | GET·registerForm()    | client/register.html |
-| 회원가입 처리     | /pethp/register | POST·registerInsert() | 성공: redirect:/<br>실패: client/register.html |
-| 로그인 화면 이동   | /pethp/login | GET·loginForm() | client/login.html |
-| 로그인 처리      | /pethp/login | POST·login() | 성공: redirect:/<br>실패: client/login.html |
-| 로그아웃 처리     | /pehtp/logout | GET·logout() | redirect:/ |
-| 마이페이지 화면 이동 | /pethp/mypage | GET·mypage() | 로그인 상태: client/mypage.html<br>비로그인 상태:redirect:/login |
-| 회원정보 수정 처리  | /pethp/mypage/update | POST·mypageUpdate() | 성공:redirect:/mypage<br>실패:client/mypage.html |
+| 회원가입 화면 이동  | /register | GET·registerForm()    | client/register.html |
+| 회원가입 처리     | /register | POST·registerInsert() | 성공: redirect:/<br>실패: client/register.html |
+| 로그인 화면 이동   | /login | GET·loginForm() | client/login.html |
+| 로그인 처리      | /login | POST·login() | 성공: redirect:/<br>실패: client/login.html |
+| 로그아웃 처리     | /logout | GET·logout() | redirect:/ |
+| 마이페이지 화면 이동 | /mypage | GET·mypage() | 로그인 상태: client/mypage.html<br>비로그인 상태:redirect:/login |
+| 회원정보 수정 처리  | /mypage/update | POST·mypageUpdate() | 성공:redirect:/mypage<br>실패:client/mypage.html |
 
 ---
 
