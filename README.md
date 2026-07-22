@@ -58,7 +58,6 @@
 | Q&A 글 등록 처리 | /pethp/qna-write | POST·qnaInsertForm() | redirect:/pethp/qna |
 | Q&A 상세조회 | /pethp/qna/{qnaNumber} | GET·qnaDetail() | client/pethp/qnaDetail |
 | Q&A 삭제처리 | /pethp/qna/delete | POST·qnaDelete() | redirect:/pethp/qna |
-|
 | 회원가입 화면 이동  | /pethp/register | GET·registerForm()    | client/register.html |
 | 회원가입 처리     | /pethp/register | POST·registerInsert() | 성공: redirect:/<br>실패: client/register.html |
 | 로그인 화면 이동   | /pethp/login | GET·loginForm() | client/login.html |
