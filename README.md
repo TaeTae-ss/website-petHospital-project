@@ -49,7 +49,7 @@
 | 공지게시판 수정 화면 | /pethp/notice/ue/{noticeNumber} | GET·updateForm() | client/pethp/notice/update |
 | 공지게시판 수정 처리 | /pethp/notice/{noticeNumber}/update  | POST·noticeUpdate() | redirect:/pethp/notice/{noticeNumber} |
 | 공지 게시판 삭제 처리 | /pethp/notice/{noticeNumber}/delete | POST·noticeDelete() | redirect:/pethp/notice/list |
-| 관리자 비밀번호 확인 | /pethp/notice/password-confirm | POST· passwordConfirm() | true or false |
+| 관리자 비밀번호 확인 | /pethp/notice/{noticeNumber}/password-confirm | POST· passwordConfirm() | true or false |
 | 자유 게시글 목록 페이지 조회 | /pethp/list | GET·boardList() | client/pethp/list |
 | 자유 게시글 작성 폼(화면) 이동 | /pethp/write | GET·writeForm() | client/pethp/write | 
 | 자유 게시글 DB 등록 처리 | /pethp/write | POST·boardInsert() | redirect:/pethp/list |
